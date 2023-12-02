@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { ref, onValue, get } from 'firebase/database';
+import { ref, onValue, get, set } from 'firebase/database';
 import database from './firebase.js';
 
-const useFirebaseValue = (reference) => {
+export const useFirebaseValue = (reference) => {
   const [value, setValue] = useState(null);
 
   useEffect(() => {
@@ -33,4 +33,7 @@ const useFirebaseValue = (reference) => {
   return value;
 };
 
-export default useFirebaseValue;
+export const setFirebaseValue = (reference, value) => {
+  const query = ref(database, reference);
+  set(query, value);
+};

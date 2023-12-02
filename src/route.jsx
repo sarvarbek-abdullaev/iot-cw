@@ -2,7 +2,7 @@ import React from 'react';
 import {
   createBrowserRouter,
 } from 'react-router-dom';
-import { Center, Box, Heading, UnorderedList, ListItem } from '@chakra-ui/react';
+import {Center, Box, Heading, UnorderedList, ListItem} from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 
 import Temperature from './components/Temperature.jsx';
@@ -13,7 +13,11 @@ import Navbar from './components/Navbar.jsx';
 const componentWithNavbar = (Component) => (
   <>
     <Navbar />
-    {Component && <Component />}
+    {Component && (
+      <Center>
+        <Component />
+      </Center>
+    )}
   </>
 );
 
