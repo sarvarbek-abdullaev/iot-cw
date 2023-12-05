@@ -8,7 +8,26 @@ const Temperature = () => {
   const averageTemperature = useFirebaseValue('averageTemperature');
   const [resetAverageTemperature, setResetAverageTemperature] = useState(averageTemperature);
 
+  const requestNotificationPermission = () => {
+    if (!window.Notification) return;
+
+    new Notification('Notification Granted', {
+      body: 'You will now receive notifications for temperature updates.',
+    });
+
+    if(Notification.permission !== 'granted') {
+      Notification.requestPermission().then(function (permission) {
+        if (permission === 'granted') {
+          new Notification('Notification Granted', {
+            body: 'You will now receive notifications for temperature updates.',
+          });
+        }
+      });
+    }
+  };
+
   useEffect(() => {
+    requestNotificationPermission();
     setResetAverageTemperature(averageTemperature); // Update local state when Firebase 'fan' value changes
   }, [averageTemperature]);
 

@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { router} from "./route.jsx";
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+import { Notifications  } from 'react-push-notification';
 
 const theme = extendTheme({
   fonts: {
@@ -18,6 +19,7 @@ const theme = extendTheme({
 
 createRoot(document.getElementById("root")).render(
   <ChakraProvider theme={theme}>
+    <Notifications />
     <RouterProvider router={router} />
   </ChakraProvider>
 );

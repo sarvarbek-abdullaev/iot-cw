@@ -5,6 +5,7 @@ import {
 import {Center, Box, Heading, UnorderedList, ListItem} from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 
+
 import Temperature from './components/Temperature.jsx';
 import Humidity from './components/Humidity.jsx';
 import Fan from './components/Fan.jsx';
