@@ -7,7 +7,7 @@ const Fire = () => {
   const requestAndSendNotification = () => {
     if (!window.Notification) return;
 
-    new Notification('Fire Alert', {
+    isFire && new Notification('Fire Alert', {
       body: 'Fire is detected!!!',
       tag: 'fire',
     });
