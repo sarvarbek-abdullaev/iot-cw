@@ -10,10 +10,12 @@ import Temperature from './components/Temperature.jsx';
 import Humidity from './components/Humidity.jsx';
 import Fan from './components/Fan.jsx';
 import Navbar from './components/Navbar.jsx';
+import Fire from "./components/Fire.jsx";
 
 const componentWithNavbar = (Component) => (
   <>
     <Navbar />
+    <Fire/>
     {Component && (
       <Center>
         <Component />
