@@ -12,7 +12,7 @@ export const useFirebaseValue = (reference) => {
       const snapshot = await get(query);
       if (snapshot.exists()) {
         const data = snapshot.val();
-        setValue(data);
+        setValue(data.toString());
       }
     };
 

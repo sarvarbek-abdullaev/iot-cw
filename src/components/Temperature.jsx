@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import {useFirebaseValue, setFirebaseValue} from '../useFirebase.js';
 import Gauge from 'canvas-gauges';
-import {Box, Center, Heading, Input} from "@chakra-ui/react";
+import {Box, Center, Heading, Input, Flex} from "@chakra-ui/react";
 
 const Temperature = () => {
   const temperature = useFirebaseValue('temp');
   const averageTemperature = useFirebaseValue('averageTemperature');
   const [resetAverageTemperature, setResetAverageTemperature] = useState(averageTemperature);
+
+  useEffect(() => {
+    setResetAverageTemperature(averageTemperature); // Update local state when Firebase 'fan' value changes
+  }, [averageTemperature]);
 
   const handleResetAverageTemperature = (val) => {
     setResetAverageTemperature(val);
@@ -33,14 +37,12 @@ const Temperature = () => {
         <canvas id="canvas-temperature"/>
       </Center>
       <Box>
-      <Heading size="md" my="4">Current Average Temperature: {averageTemperature}</Heading>
         {temperature && (
-          <>
-            <Heading size="md" my="4">Set New Average Temperature: </Heading>
-            <Input value={resetAverageTemperature} onChange={(e) => handleResetAverageTemperature(+e.target.value)} placeholder="Reset Average Temperature" />
-          </>
+          <Flex alignItems="center" gap="10px">
+            <Heading size="md" my="4">Current Average Temperature:</Heading>
+            <Input width="100px" value={resetAverageTemperature} onChange={(e) => handleResetAverageTemperature(+e.target.value)} placeholder="Reset Average Temperature" />
+          </Flex>
         )}
-        {/*<Button colorScheme="teal" size="md" my="4" onClick={ }>Reset Average Temperature</Button>*/}
       </Box>
     </Box>
   );
