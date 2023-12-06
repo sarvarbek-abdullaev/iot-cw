@@ -11,7 +11,7 @@ const Navbar = () => {
           <Flex align="center" maxW="1200px" m="auto">
             <RouterLink to="/" key="/">
               <Text color="white" fontSize="xl" fontWeight="bold">
-                Smart Home
+                Smart Office
               </Text>
             </RouterLink>
             <Spacer />

@@ -50,7 +50,7 @@ function Route() {
     <Center height="100vh">
       <Box textAlign="center">
         <Heading as="h1" mb={4}>
-          Smart Home
+          Smart Office
         </Heading>
         <UnorderedList display="inline-block" textAlign="left" pl={0}>
           <ListItem display="inline-block" mx={2}>
